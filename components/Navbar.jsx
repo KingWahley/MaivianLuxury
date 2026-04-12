@@ -19,7 +19,7 @@ export default function Navbar() {
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/90 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <Link href="/" className="text-2xl font-serif font-bold text-white tracking-wide">
-          LUXURA<span className="text-gold">.</span>
+          MAIVIAN LUXURY<span className="text-gold">.</span>
         </Link>
         
         {/* Desktop Nav */}

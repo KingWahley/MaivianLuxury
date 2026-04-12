@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Filter, MapPin, Bed, Bath } from "lucide-react";
 
 export const metadata = {
-  title: "Our Residences | Luxura",
+  title: "Our Residences | Maivian Luxury",
   description: "Browse our exclusive collection of luxury shortlet apartments.",
 };
 

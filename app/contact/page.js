@@ -45,7 +45,7 @@ export default function ContactPage() {
                   <div className="mt-1"><Mail className="text-gold" size={24} /></div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Email Address</h3>
-                    <p className="text-gray-muted font-light">reservations@luxura.com<br />inquiries@luxura.com</p>
+                    <p className="text-gray-muted font-light">reservations@maivianluxury.com<br />inquiries@maivianluxury.com</p>
                   </div>
                 </div>
               </div>

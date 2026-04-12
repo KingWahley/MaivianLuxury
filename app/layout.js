@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Luxura | Shortlet Apartments",
+  title: "Maivian Luxury | Shortlet Apartments",
   description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for comfort and class.",
 };
 
