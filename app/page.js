@@ -28,7 +28,7 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-6"
           >
-            Experience Luxury <br/> Living, <span className="text-gold italic">Redefined.</span>
+            Maivian Luxury 
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -93,7 +93,7 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Featured Residences</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Available Apartments</h2>
               <div className="w-16 h-1 bg-gold"></div>
             </div>
             <Link href="/apartments" className="hidden md:flex items-center gap-2 text-gold hover:text-white transition-colors duration-300 uppercase tracking-widest text-sm mt-6 md:mt-0">
@@ -101,11 +101,10 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { name: "The Presidential Suite", price: "$450", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" },
-              { name: "Oceanview Penthouse", price: "$650", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1000&auto=format&fit=crop" },
-              { name: "Urban City Loft", price: "$320", img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" }
+              { name: "The Penthouse", price: "$450", img: "/images/Penthouse/1.jpeg" },
+              { name: "3 bedroom luxury apartment", price: "$650", img: "/images/3 bedroom luxury apartment/1.jpeg" }
             ].map((apt, idx) => (
               <motion.div 
                 key={idx}
@@ -132,7 +131,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    <span className="inline-block border-b border-gold text-white text-sm tracking-widest uppercase pb-1">Explore Suite</span>
+                    <span className="inline-block border-b border-gold text-white text-sm tracking-widest uppercase pb-1">Explore Apartment</span>
                   </div>
                 </div>
               </motion.div>
@@ -141,8 +140,49 @@ export default function Home() {
           
           <div className="mt-12 text-center md:hidden">
             <Link href="/apartments" className="inline-flex items-center gap-2 text-gold hover:text-white transition-colors duration-300 uppercase tracking-widest text-sm border-b border-gold pb-1">
-              View All Residences <ArrowRight size={16} />
+              View All Apartments <ArrowRight size={16} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-24 bg-primary relative overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Reviews From Our Guests</h2>
+            <div className="w-16 h-1 bg-gold mx-auto"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "Chioma O.", role: "Business Executive", text: "Maivian Luxury provided an experience unlike any other. The attention to detail and 24/7 concierge service made my stay exceptional.", rating: 5 },
+              { name: "Adekunle T.", role: "International Traveler", text: "A true masterclass in hospitality. The penthouse was stunning, and the location was perfectly central to everything I needed.", rating: 5 },
+              { name: "Amina B.", role: "Fashion Designer", text: "The aesthetic of these apartments is simply breathtaking. Every piece of furniture feels curated. I will definitely be returning.", rating: 5 }
+            ].map((review, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.2 }}
+                className="bg-secondary/30 p-10 border border-white/5 relative group hover:bg-secondary/60 transition-colors duration-500"
+              >
+                <div className="flex gap-1 mb-6">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" className="text-gold" />
+                  ))}
+                </div>
+                <p className="text-gray-muted text-lg font-light leading-relaxed mb-8 italic">"{review.text}"</p>
+                <div>
+                  <h4 className="text-white font-serif font-bold">{review.name}</h4>
+                  <p className="text-gold text-sm tracking-widest uppercase mt-1 text-xs">{review.role}</p>
+                </div>
+                <div className="absolute top-2 right-6 opacity-10 pointer-events-none">
+                  <span className="text-8xl font-serif text-white leading-none">"</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

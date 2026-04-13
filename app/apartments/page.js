@@ -8,12 +8,8 @@ export const metadata = {
 };
 
 const apartments = [
-  { id: 1, name: "The Presidential Suite", location: "Downtown Metropolis", price: "$450", beds: 3, baths: 3, img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" },
-  { id: 2, name: "Oceanview Penthouse", location: "Coastal Bay", price: "$650", beds: 4, baths: 4, img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1000&auto=format&fit=crop" },
-  { id: 3, name: "Urban City Loft", location: "Midtown", price: "$320", beds: 2, baths: 2, img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" },
-  { id: 4, name: "The Zenith Villa", location: "Highland Park", price: "$850", beds: 5, baths: 6, img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000&auto=format&fit=crop" },
-  { id: 5, name: "Elegance Studio", location: "Downtown Metropolis", price: "$200", beds: 1, baths: 1, img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1000&auto=format&fit=crop" },
-  { id: 6, name: "Skyline Retreat", location: "Financial District", price: "$510", beds: 2, baths: 3, img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" },
+  { id: 1, name: "The Penthouse", location: "No 1 Oladikpo ige street harmony estate news engineering Dawaki", price: "$450", beds: 3, baths: 3, img: "/images/Penthouse/1.jpeg" },
+  { id: 2, name: "3 bedroom luxury apartment", location: "No 1 dr Goddy Idam street Aisha estate Dawaki. Behind Dawaki modern market", price: "$650", beds: 4, baths: 4, img: "/images/3 bedroom luxury apartment/1.jpeg" },
 ];
 
 export default function ApartmentsPage() {
@@ -22,7 +18,7 @@ export default function ApartmentsPage() {
       {/* Header */}
       <section className="relative pt-40 pb-20 px-6 md:px-12 bg-secondary/50 border-b border-white/5">
         <div className="container mx-auto">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Our Residences</h1>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Our Apartments</h1>
           <p className="text-gray-muted max-w-2xl text-lg font-light">
             Discover our curated collection of extraordinary homes, handpicked for their unique charm, premium amenities, and unparalleled comfort.
           </p>
@@ -46,7 +42,7 @@ export default function ApartmentsPage() {
                   <label className="block text-sm text-gray-muted mb-2 uppercase tracking-wide">Location</label>
                   <select className="w-full bg-primary border border-white/10 text-white p-3 focus:border-gold outline-none transition-colors appearance-none rounded-none">
                     <option>All Locations</option>
-                    <option>Downtown Metropolis</option>
+                    <option>Downtown Abuja</option>
                     <option>Coastal Bay</option>
                     <option>Midtown</option>
                   </select>
@@ -96,7 +92,7 @@ export default function ApartmentsPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-sm text-gray-muted mb-2">
-                    <MapPin size={14} className="text-gold" />
+                    <MapPin size={30} className="text-gold" />
                     <span>{apt.location}</span>
                   </div>
                   <h3 className="text-xl font-serif text-white mb-4">{apt.name}</h3>

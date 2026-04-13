@@ -1,28 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Bed, Bath, Users, Wifi, Tv, Coffee, Wind, ArrowLeft, Star, ShieldCheck } from "lucide-react";
+import GallerySlider from "./GallerySlider";
 
 export default async function ApartmentDetails({ params }) {
   // In Next.js 15, params is a Promise.
   const resolvedParams = await params;
   const { id } = resolvedParams;
 
-  // Mock fetching data based on ID, using a dummy apartment for all IDs
-  const apt = { 
-    id, 
-    name: "The Presidential Suite", 
-    location: "Downtown Metropolis", 
-    price: "$450", 
-    beds: 3, 
-    baths: 3, 
-    guests: 6,
-    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop",
-    gallery: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=1000&auto=format&fit=crop"
-    ],
-    description: "Experience unparalleled luxury in our Presidential Suite. Spanning over 2,500 square feet, this residence offers breathtaking city views, custom designer furnishings, and state-of-the-art smart home integration. Perfect for families or executives seeking the finest accommodations in the heart of the metropolis with private elevator access."
-  };
+  let apt = {};
+  if (id === '1') {
+    apt = {
+      id,
+      name: "The Penthouse",
+      location: "No 1 Oladikpo ige street harmony estate news engineering Dawaki",
+      price: "$450",
+      beds: 3,
+      baths: 3,
+      guests: 6,
+      images: Array.from({length: 31}, (_, i) => `/images/Penthouse/${i + 1}.jpeg`),
+      description: "Experience unparalleled luxury in The Penthouse. Spanning the entire top floor, this residence offers breathtaking city views, custom designer furnishings, and state-of-the-art smart home integration. Perfect for families or executives seeking the finest accommodations."
+    };
+  } else {
+    apt = {
+      id,
+      name: "3 bedroom luxury apartment",
+      location: "No 1 dr Goddy Idam street Aisha estate Dawaki. Behind Dawaki modern market",
+      price: "$650",
+      beds: 4,
+      baths: 4,
+      guests: 8,
+      images: Array.from({length: 18}, (_, i) => `/images/3 bedroom luxury apartment/${i + 1}.jpeg`),
+      description: "Discover true comfort in this 3 bedroom luxury apartment. Handpicked for its unique charm, premium amenities, and unparalleled elegance. Make yourself at home in our curated collection of extraordinary residences."
+    };
+  }
 
   return (
     <div className="pt-24 pb-20 bg-primary min-h-screen">
@@ -32,18 +43,7 @@ export default async function ApartmentDetails({ params }) {
         </Link>
 
         {/* Hero Gallery */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12 h-[60vh] min-h-[400px]">
-          <div className="lg:col-span-2 relative h-full w-full">
-            <Image src={apt.img} alt={apt.name} fill className="object-cover" />
-          </div>
-          <div className="hidden lg:grid grid-rows-2 gap-4 h-full">
-            {apt.gallery.map((img, i) => (
-              <div key={i} className="relative w-full h-full">
-                <Image src={img} alt={`Gallery ${i}`} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-        </div>
+        <GallerySlider images={apt.images} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           {/* Main Details */}
