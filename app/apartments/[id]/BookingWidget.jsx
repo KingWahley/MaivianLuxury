@@ -51,7 +51,7 @@ Please confirm availability.`;
   };
 
   return (
-    <div className="bg-secondary/80 p-8 border border-white/10 sticky top-32">
+    <div className="bg-secondary/80 p-5 lg:p-8 border border-white/10 sticky top-32 max-w-full box-border">
       <h3 className="text-2xl font-serif text-white mb-6">Reserve Now</h3>
       
       <div className="space-y-4 mb-8">
@@ -61,7 +61,7 @@ Please confirm availability.`;
             type="date" 
             value={checkIn}
             onChange={(e) => setCheckIn(e.target.value)}
-            className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold" 
+            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold" 
           />
         </div>
         <div>
@@ -71,7 +71,7 @@ Please confirm availability.`;
             value={checkOut}
             onChange={(e) => setCheckOut(e.target.value)}
             min={checkIn} // Optional: ensures checkout is after checkin
-            className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold" 
+            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold" 
           />
         </div>
         <div>
@@ -79,7 +79,7 @@ Please confirm availability.`;
           <select 
             value={bedrooms}
             onChange={(e) => setBedrooms(e.target.value)}
-            className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold appearance-none"
+            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold appearance-none"
           >
             {apartment.pricing.map(p => (
               <option key={p.beds} value={p.beds}>{p.beds} Bedrooms</option>
@@ -91,7 +91,7 @@ Please confirm availability.`;
           <select 
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
-            className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold appearance-none"
+            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold appearance-none"
           >
             <option value="1 Guest">1 Guest</option>
             <option value="2 Guests">2 Guests</option>

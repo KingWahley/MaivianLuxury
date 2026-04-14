@@ -13,7 +13,7 @@ export const apartments = [
     baths: 3,
     guests: 6,
     images: Array.from({length: 31}, (_, i) => `/images/Penthouse/${i + 1}.jpeg`),
-    img: "/images/Penthouse/1.jpeg",
+    img: "/images/Penthouse/26.jpeg",
     description: "Experience unparalleled luxury in The Penthouse. Spanning the entire top floor, this residence offers breathtaking city views, custom designer furnishings, and state-of-the-art smart home integration. Perfect for families or executives seeking the finest accommodations."
   },
   {
@@ -30,7 +30,7 @@ export const apartments = [
     baths: 3,
     guests: 6,
     images: Array.from({length: 18}, (_, i) => `/images/3 bedroom luxury apartment/${i + 1}.jpeg`),
-    img: "/images/3 bedroom luxury apartment/1.jpeg",
+    img: "/images/3 bedroom luxury apartment/9.jpeg",
     description: "Discover true comfort in this 3 bedroom luxury apartment. Handpicked for its unique charm, premium amenities, and unparalleled elegance. Make yourself at home in our curated collection of extraordinary residences."
   }
 ];

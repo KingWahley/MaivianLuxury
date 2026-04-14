@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -18,8 +19,16 @@ export default function Navbar() {
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/90 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-serif font-bold text-white tracking-wide">
-          MAIVIAN LUXURY<span className="text-gold">.</span>
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/images/logo.png" 
+            alt="Maivian Luxury Logo" 
+            width={160} 
+            height={60} 
+            className="object-contain rounded-lg h-12 w-auto"
+            priority
+          />
+          <h4 className='text-white px-4 font-bold'>MAIVIAN LUXURY</h4>
         </Link>
         
         {/* Desktop Nav */}
