@@ -1,8 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Bed, Bath, Users, Wifi, Tv, Coffee, Wind, ArrowLeft, Star, ShieldCheck } from "lucide-react";
+import { MapPin, Bed, Bath, Users, Wifi, Tv, Coffee, Wind, ArrowLeft, Star, ShieldCheck, CheckCircle2, Gamepad2, Target, Zap, Power, Sun, UtensilsCrossed, Shirt, Sparkles, Ban, Building } from "lucide-react";
+
+const getAmenityIcon = (amenity) => {
+  const lowercase = amenity.toLowerCase();
+  if (lowercase.includes("ps5") || lowercase.includes("game")) return Gamepad2;
+  if (lowercase.includes("netflix") || lowercase.includes("tv")) return Tv;
+  if (lowercase.includes("wifi") || lowercase.includes("internet")) return Wifi;
+  if (lowercase.includes("snooker") || lowercase.includes("pool")) return Target;
+  if (lowercase.includes("appliance")) return Zap;
+  if (lowercase.includes("lister") || lowercase.includes("generator")) return Power;
+  if (lowercase.includes("solar") || lowercase.includes("power")) return Sun;
+  if (lowercase.includes("kitchen")) return UtensilsCrossed;
+  if (lowercase.includes("washing")) return Shirt;
+  if (lowercase.includes("cleaner")) return Sparkles;
+  if (lowercase.includes("parties")) return Ban;
+  if (lowercase.includes("estate") || lowercase.includes("secure")) return ShieldCheck;
+  if (lowercase.includes("balcony")) return Building;
+  return CheckCircle2;
+};
 import GallerySlider from "./GallerySlider";
 import BookingWidget from "./BookingWidget";
+import ReadMoreText from "./ReadMoreText";
 
 import { apartments } from "../../data/apartments";
 
@@ -56,19 +75,31 @@ export default async function ApartmentDetails({ params }) {
 
             <div className="mb-12">
               <h2 className="text-2xl font-serif text-white mb-6">About this residence</h2>
-              <p className="text-gray-muted leading-relaxed font-light text-lg">
-                {apt.description}
-              </p>
+              <ReadMoreText text={apt.description} />
             </div>
 
             <div>
               <h2 className="text-2xl font-serif text-white mb-6">Premium Amenities</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4">
-                <div className="flex items-center gap-3 text-gray-muted text-sm"><Wifi className="text-white" size={18} /> High-Speed WiFi</div>
-                <div className="flex items-center gap-3 text-gray-muted text-sm"><Wind className="text-white" size={18} /> Air Conditioning</div>
-                <div className="flex items-center gap-3 text-gray-muted text-sm"><Tv className="text-white" size={18} /> Smart TV</div>
-                <div className="flex items-center gap-3 text-gray-muted text-sm"><ShieldCheck className="text-white" size={18} /> 24/7 Security</div>
-                <div className="flex items-center gap-3 text-gray-muted text-sm"><Star className="text-white" size={18} /> Concierge</div>
+                {apt.amenities ? (
+                  apt.amenities.map((amenity, idx) => {
+                    const IconComponent = getAmenityIcon(amenity);
+                    return (
+                      <div key={idx} className="flex items-center gap-3 text-gray-muted text-sm">
+                        <IconComponent className="text-white shrink-0" size={18} /> 
+                        <span className="capitalize">{amenity.toLowerCase()}</span>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <>
+                    <div className="flex items-center gap-3 text-gray-muted text-sm"><Wifi className="text-white shrink-0" size={18} /> <span>High-Speed WiFi</span></div>
+                    <div className="flex items-center gap-3 text-gray-muted text-sm"><Wind className="text-white shrink-0" size={18} /> <span>Air Conditioning</span></div>
+                    <div className="flex items-center gap-3 text-gray-muted text-sm"><Tv className="text-white shrink-0" size={18} /> <span>Smart TV</span></div>
+                    <div className="flex items-center gap-3 text-gray-muted text-sm"><ShieldCheck className="text-white shrink-0" size={18} /> <span>24/7 Security</span></div>
+                    <div className="flex items-center gap-3 text-gray-muted text-sm"><Star className="text-white shrink-0" size={18} /> <span>Concierge</span></div>
+                  </>
+                )}
               </div>
             </div>
           </div>

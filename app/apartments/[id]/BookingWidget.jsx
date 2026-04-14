@@ -11,7 +11,7 @@ export default function BookingWidget({ apartment }) {
   const currentPrice = apartment.pricing.find(p => p.beds === parseInt(bedrooms))?.price || apartment.pricing[0].price;
   
   // Calculate nights based on dates
-  let nights = 3; // Default to 3 nights
+  let nights = 1; // Default to 3 nights
   if (checkIn && checkOut) {
     const start = new Date(checkIn);
     const end = new Date(checkOut);
