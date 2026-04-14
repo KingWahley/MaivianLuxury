@@ -1,23 +1,51 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export default function GallerySlider({ images }) {
   const [startIndex, setStartIndex] = useState(0);
+  const [step, setStep] = useState(1);
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const isLg = window.innerWidth >= 1024;
+      setStep(isLg ? 3 : 1);
+      
+      // Align startIndex to step boundaries when becoming a PC screen
+      if (isLg) {
+        setStartIndex((prev) => Math.floor(prev / 3) * 3);
+      }
+    };
+    
+    // Initial check
+    handleResize();
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   if (!images || images.length === 0) return null;
 
   const nextImages = () => {
-    setStartIndex((prev) => (prev + 1 >= images.length ? 0 : prev + 1));
+    setStartIndex((prev) => {
+      const nextIndex = prev + step;
+      return nextIndex >= images.length ? 0 : nextIndex;
+    });
   };
 
   const prevImages = () => {
-    setStartIndex((prev) => (prev - 1 < 0 ? images.length - 1 : prev - 1));
+    setStartIndex((prev) => {
+      const prevIndex = prev - step;
+      if (prevIndex < 0) {
+        return Math.floor((Math.max(0, images.length - 1)) / step) * step;
+      }
+      return prevIndex;
+    });
   };
 
   const minSwipeDistance = 50;
