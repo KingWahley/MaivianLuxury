@@ -50,7 +50,7 @@ export const apartments = [
       "Balcony front and back",
       "Secured mini estate"
     ],
-    images: Array.from({length: 12}, (_, i) => `/images/3 bedroom luxury apartment/${i + 1}.jpeg`),
+    images: Array.from({length: 24}, (_, i) => `/images/3 bedroom luxury apartment/${i + 1}.jpeg`),
     img: "/images/3 bedroom luxury apartment/1.jpeg",
     description: "Discover true comfort in this 3 bedroom luxury apartment. Handpicked for its unique charm, premium amenities, and unparalleled elegance. Make yourself at home in our curated collection of extraordinary residences."
   }
