@@ -6,8 +6,8 @@ export const apartments = [
     area: "Dawaki",
     price: "₦170,000 - ₦180,000",
     pricing: [
-      { beds: 2, price: 180000 },
-      { beds: 3, price: 170000 }
+      { beds: 2, price: 170000 },
+      { beds: 3, price: 180000 }
     ],
     beds: 3,
     baths: 3,
