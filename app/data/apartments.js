@@ -25,7 +25,7 @@ export const apartments = [
       "IN-HOUSE CLEANER AT YOUR SERVICES 24/7",
       "NO PARTIES ALLOWED"
     ],
-    images: Array.from({length: 12}, (_, i) => `/images/Penthouse/${i + 1}.jpeg`),
+    images: Array.from({length: 18}, (_, i) => `/images/Penthouse/${i + 1}.jpeg`),
     img: "/images/Penthouse/3.jpeg",
     description: "Step into unparalleled luxury at our stunning 3-bedroom penthouse in the heart of Abuja, Nigeria—your ultimate luxury home away from home. With a capacity to host up to 10 guests, this exquisite property blends sophistication and ambiance, making it perfect for corporate retreats, family gatherings, or a romantic getaway. Marvel at the opulence of three spacious balconies offering breathtaking views, while enjoying entertainment at its finest with a PS5 and a snooker table for friendly competition. The fitted kitchen is a chef's dream, equipped with an inbuilt microwave, oven for grilling, gas burner, and washing machine, ensuring you have everything you need for seamless comfort. Stay connected and comfortable with our fully functional smart home powered by Alexa, and enjoy peace of mind with 24/7 electricity backed by a solar inverter and a robust 55KVA Lister generator. Plus, our dedicated cleaning team ensures your space stays immaculate during your stay. Don’t miss the chance to elevate your next event—book your unforgettable experience now and make this luxurious penthouse your go-to short-term rental in Abuja!"
   },
