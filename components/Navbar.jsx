@@ -3,10 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,20 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const getLinkClass = (path) => {
+    const isActive = pathname === path || (path !== '/' && pathname?.startsWith(path));
+    return `text-sm uppercase tracking-widest transition-colors ${
+      isActive ? 'text-white font-semibold' : 'text-gray-muted hover:text-white'
+    }`;
+  };
+
+  const getMobileLinkClass = (path) => {
+    const isActive = pathname === path || (path !== '/' && pathname?.startsWith(path));
+    return `text-lg uppercase tracking-widest transition-colors ${
+      isActive ? 'text-white font-semibold' : 'text-gray-muted hover:text-white'
+    }`;
+  };
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/90 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
@@ -33,10 +49,10 @@ export default function Navbar() {
         
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/" className="text-sm uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Home</Link>
-          <Link href="/apartments" className="text-sm uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Apartments</Link>
-          <Link href="/about" className="text-sm uppercase tracking-widest text-gray-muted hover:text-white transition-colors">About</Link>
-          <Link href="/contact" className="text-sm uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Contact</Link>
+          <Link href="/" className={getLinkClass('/')}>Home</Link>
+          <Link href="/apartments" className={getLinkClass('/apartments')}>Apartments</Link>
+          <Link href="/about" className={getLinkClass('/about')}>About</Link>
+          <Link href="/contact" className={getLinkClass('/contact')}>Contact</Link>
         </nav>
         
         <div className="hidden md:block">
@@ -54,10 +70,10 @@ export default function Navbar() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-primary/95 backdrop-blur-md border-t border-secondary/50 p-6 flex flex-col space-y-6 text-center shadow-xl">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-lg uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Home</Link>
-          <Link href="/apartments" onClick={() => setIsOpen(false)} className="text-lg uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Apartments</Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg uppercase tracking-widest text-gray-muted hover:text-white transition-colors">About</Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className="text-lg uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Contact</Link>
+          <Link href="/" onClick={() => setIsOpen(false)} className={getMobileLinkClass('/')}>Home</Link>
+          <Link href="/apartments" onClick={() => setIsOpen(false)} className={getMobileLinkClass('/apartments')}>Apartments</Link>
+          <Link href="/about" onClick={() => setIsOpen(false)} className={getMobileLinkClass('/about')}>About</Link>
+          <Link href="/contact" onClick={() => setIsOpen(false)} className={getMobileLinkClass('/contact')}>Contact</Link>
           <div className="pt-4 flex justify-center">
             <Link href="https://api.whatsapp.com/send/?phone=2348163334514" onClick={() => setIsOpen(false)} className="inline-block px-8 py-4 bg-gold text-primary hover:bg-white transition-all duration-300 uppercase text-sm tracking-widest font-bold">
               Book Now
