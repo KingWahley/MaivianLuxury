@@ -27,18 +27,17 @@ export default function BookingWidget({ apartment }) {
   const total = subtotal + serviceFee;
 
   const handleBooking = () => {
-    if (!checkIn || !checkOut) {
-      alert("Please select both check-in and check-out dates to continue.");
-      return;
-    }
+    const checkInText = checkIn ? checkIn : "To be decided";
+    const checkOutText = checkOut ? checkOut : "To be decided";
+    const nightsText = (checkIn && checkOut) ? `${nights} nights` : "To be decided";
 
     const message = `Hello Maivian Luxury! I would like to book an apartment:
 
 *Apartment:* ${apartment.name}
 *Bedrooms:* ${bedrooms} Bedrooms
-*Check-in:* ${checkIn}
-*Check-out:* ${checkOut}
-*Nights:* ${nights} nights
+*Check-in:* ${checkInText}
+*Check-out:* ${checkOutText}
+*Nights:* ${nightsText}
 *Guests:* ${guests}
 
 *Estimated Total:* ₦${total.toLocaleString()}
@@ -55,43 +54,43 @@ Please confirm availability.`;
       <h3 className="text-2xl font-serif text-white mb-6">Reserve Now</h3>
       
       <div className="space-y-4 mb-8">
-        <div>
+        <div className="w-full relative">
           <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Check-in</label>
           <input 
             type="date" 
             value={checkIn}
             onChange={(e) => setCheckIn(e.target.value)}
-            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold" 
+            className="w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold block box-border" 
           />
         </div>
-        <div>
+        <div className="w-full relative">
           <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Check-out</label>
           <input 
             type="date" 
             value={checkOut}
             onChange={(e) => setCheckOut(e.target.value)}
             min={checkIn} // Optional: ensures checkout is after checkin
-            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold" 
+            className="w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold block box-border" 
           />
         </div>
-        <div>
+        <div className="w-full relative">
           <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Bedrooms to Book</label>
           <select 
             value={bedrooms}
             onChange={(e) => setBedrooms(e.target.value)}
-            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold appearance-none"
+            className="w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold appearance-none block box-border"
           >
             {apartment.pricing.map(p => (
               <option key={p.beds} value={p.beds}>{p.beds} Bedrooms</option>
             ))}
           </select>
         </div>
-        <div>
+        <div className="w-full relative">
           <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Guests</label>
           <select 
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
-            className="w-full min-w-0 max-w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold appearance-none"
+            className="w-full bg-primary border border-white/20 text-white p-3 md:p-4 outline-none focus:border-gold appearance-none block box-border"
           >
             <option value="1 Guest">1 Guest</option>
             <option value="2 Guests">2 Guests</option>
