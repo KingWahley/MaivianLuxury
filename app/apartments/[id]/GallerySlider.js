@@ -7,21 +7,38 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 export default function GallerySlider({ images }) {
   const [startIndex, setStartIndex] = useState(0);
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
   if (!images || images.length === 0) return null;
 
   const nextImages = () => {
-    setStartIndex((prev) => (prev + 3 >= images.length ? 0 : prev + 3));
+    setStartIndex((prev) => (prev + 1 >= images.length ? 0 : prev + 1));
   };
 
   const prevImages = () => {
-    setStartIndex((prev) => {
-      if (prev - 3 < 0) {
-        // If we are at 0, wrap around to the end, ensuring valid index
-        const remainder = images.length % 3;
-        return Math.max(0, images.length - (remainder === 0 ? 3 : remainder));
-      }
-      return prev - 3;
-    });
+    setStartIndex((prev) => (prev - 1 < 0 ? images.length - 1 : prev - 1));
+  };
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEndHandler = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextImages();
+    } else if (isRightSwipe) {
+      prevImages();
+    }
   };
 
   const currentImages = images.slice(startIndex, startIndex + 3);
@@ -40,7 +57,12 @@ export default function GallerySlider({ images }) {
   ];
 
   return (
-    <div className="relative mb-12 group">
+    <div 
+      className="relative mb-12 group"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEndHandler}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[60vh] min-h-[400px]">
         <div className="lg:col-span-2 relative h-full w-full bg-secondary/30">
           {displayImages[0] && (
@@ -65,13 +87,13 @@ export default function GallerySlider({ images }) {
         <>
           <button 
             onClick={prevImages}
-            className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/60 text-white p-3 hover:bg-gold transition-colors z-10 opacity-0 group-hover:opacity-100 duration-300 md:block hidden border border-white/10"
+            className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/60 text-white p-3 hover:bg-gold transition-colors z-10 opacity-100 md:opacity-0 group-hover:opacity-100 duration-300 border border-white/10"
           >
             <ChevronLeft size={24} />
           </button>
           <button 
             onClick={nextImages}
-            className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/60 text-white p-3 hover:bg-gold transition-colors z-10 opacity-0 group-hover:opacity-100 duration-300 md:block hidden border border-white/10"
+            className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/60 text-white p-3 hover:bg-gold transition-colors z-10 opacity-100 md:opacity-0 group-hover:opacity-100 duration-300 border border-white/10"
           >
             <ChevronRight size={24} />
           </button>
@@ -80,7 +102,8 @@ export default function GallerySlider({ images }) {
 
       {images.length > 0 && (
         <div className="absolute bottom-6 right-6 bg-black/80 text-white px-4 py-2 text-sm z-10 font-bold tracking-widest border border-white/20">
-          {Math.min(startIndex + 3, images.length)} / {images.length}
+          <span className="lg:hidden">{startIndex + 1} / {images.length}</span>
+          <span className="hidden lg:inline">{Math.min(startIndex + 3, images.length)} / {images.length}</span>
         </div>
       )}
     </div>

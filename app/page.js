@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Shield, Zap, MapPin, ConciergeBell, ArrowRight, Star } from "lucide-react";
+import { apartments } from "./data/apartments";
 
 export default function Home() {
   return (
@@ -102,10 +103,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { name: "The Penthouse", price: "$450", img: "/images/Penthouse/1.jpeg" },
-              { name: "3 bedroom luxury apartment", price: "$650", img: "/images/3 bedroom luxury apartment/1.jpeg" }
-            ].map((apt, idx) => (
+            {apartments.slice(0, 2).map((apt, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -114,6 +112,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
                 className="group cursor-pointer relative overflow-hidden"
               >
+                <Link href={`/apartments/${apt.id}`} className="block h-full w-full">
                 <div className="relative h-[450px] w-full overflow-hidden">
                   <Image 
                     src={apt.img}
@@ -134,6 +133,7 @@ export default function Home() {
                     <span className="inline-block border-b border-gold text-white text-sm tracking-widest uppercase pb-1">Explore Apartment</span>
                   </div>
                 </div>
+                </Link>
               </motion.div>
             ))}
           </div>

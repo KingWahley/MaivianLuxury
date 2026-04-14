@@ -2,37 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Bed, Bath, Users, Wifi, Tv, Coffee, Wind, ArrowLeft, Star, ShieldCheck } from "lucide-react";
 import GallerySlider from "./GallerySlider";
+import BookingWidget from "./BookingWidget";
+
+import { apartments } from "../../data/apartments";
 
 export default async function ApartmentDetails({ params }) {
   // In Next.js 15, params is a Promise.
   const resolvedParams = await params;
   const { id } = resolvedParams;
 
-  let apt = {};
-  if (id === '1') {
-    apt = {
-      id,
-      name: "The Penthouse",
-      location: "No 1 Oladikpo ige street harmony estate news engineering Dawaki",
-      price: "$450",
-      beds: 3,
-      baths: 3,
-      guests: 6,
-      images: Array.from({length: 31}, (_, i) => `/images/Penthouse/${i + 1}.jpeg`),
-      description: "Experience unparalleled luxury in The Penthouse. Spanning the entire top floor, this residence offers breathtaking city views, custom designer furnishings, and state-of-the-art smart home integration. Perfect for families or executives seeking the finest accommodations."
-    };
-  } else {
-    apt = {
-      id,
-      name: "3 bedroom luxury apartment",
-      location: "No 1 dr Goddy Idam street Aisha estate Dawaki. Behind Dawaki modern market",
-      price: "$650",
-      beds: 4,
-      baths: 4,
-      guests: 8,
-      images: Array.from({length: 18}, (_, i) => `/images/3 bedroom luxury apartment/${i + 1}.jpeg`),
-      description: "Discover true comfort in this 3 bedroom luxury apartment. Handpicked for its unique charm, premium amenities, and unparalleled elegance. Make yourself at home in our curated collection of extraordinary residences."
-    };
+  const apt = apartments.find(a => a.id.toString() === id);
+
+  if (!apt) {
+    return (
+      <div className="pt-40 pb-20 bg-primary min-h-screen flex items-center justify-center text-white font-serif text-2xl">
+        Apartment not found
+      </div>
+    );
   }
 
   return (
@@ -89,48 +75,7 @@ export default async function ApartmentDetails({ params }) {
 
           {/* Booking Widget */}
           <div className="lg:col-span-1">
-            <div className="bg-secondary/80 p-8 border border-white/10 sticky top-32">
-              <h3 className="text-2xl font-serif text-white mb-6">Reserve Now</h3>
-              
-              <div className="space-y-4 mb-8">
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Check-in</label>
-                  <input type="date" className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold" />
-                </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Check-out</label>
-                  <input type="date" className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold" />
-                </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-muted mb-2">Guests</label>
-                  <select className="w-full bg-primary border border-white/20 text-white p-4 outline-none focus:border-gold appearance-none">
-                    <option>1 Guest</option>
-                    <option>2 Guests</option>
-                    <option>3 Guests</option>
-                    <option>4+ Guests</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="border-t border-white/10 pt-4 mb-8">
-                <div className="flex justify-between text-gray-muted mb-2">
-                  <span>{apt.price} x 3 nights</span>
-                  <span>$1,350</span>
-                </div>
-                <div className="flex justify-between text-gray-muted mb-4">
-                  <span>Service fee</span>
-                  <span>$150</span>
-                </div>
-                <div className="flex justify-between text-white text-lg font-bold border-t border-white/10 pt-4">
-                  <span>Total</span>
-                  <span className="text-gold">$1,500</span>
-                </div>
-              </div>
-
-              <button className="w-full bg-gold text-primary font-bold py-4 uppercase tracking-widest hover:bg-white transition-colors duration-300">
-                Confirm Booking
-              </button>
-            </div>
+            <BookingWidget apartment={apt} />
           </div>
         </div>
       </div>

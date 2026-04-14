@@ -28,7 +28,7 @@ export default function Footer() {
             <h4 className="text-white font-serif text-lg mb-6 tracking-wide">Contact</h4>
             <ul className="space-y-4 text-sm text-gray-muted tracking-wide font-light">
               <li>123 Luxury Avenue, Metropolis</li>
-              <li>+1 (555) 123-4567</li>
+              <li>+234 8163 334 514</li>
               <li>reservations@maivianluxury.com</li>
             </ul>
           </div>
