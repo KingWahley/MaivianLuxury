@@ -40,7 +40,7 @@ export default function Navbar() {
         </nav>
         
         <div className="hidden md:block">
-          <Link href="/apartments" className="px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-primary transition-all duration-300 uppercase text-xs tracking-widest font-semibold">
+          <Link href="https://api.whatsapp.com/send/?phone=2348163334514" className="px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-primary transition-all duration-300 uppercase text-xs tracking-widest font-semibold">
             Book Now
           </Link>
         </div>
@@ -59,7 +59,7 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg uppercase tracking-widest text-gray-muted hover:text-white transition-colors">About</Link>
           <Link href="/contact" onClick={() => setIsOpen(false)} className="text-lg uppercase tracking-widest text-gray-muted hover:text-white transition-colors">Contact</Link>
           <div className="pt-4 flex justify-center">
-            <Link href="/apartments" onClick={() => setIsOpen(false)} className="inline-block px-8 py-4 bg-gold text-primary hover:bg-white transition-all duration-300 uppercase text-sm tracking-widest font-bold">
+            <Link href="https://api.whatsapp.com/send/?phone=2348163334514" onClick={() => setIsOpen(false)} className="inline-block px-8 py-4 bg-gold text-primary hover:bg-white transition-all duration-300 uppercase text-sm tracking-widest font-bold">
               Book Now
             </Link>
           </div>
