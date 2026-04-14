@@ -40,7 +40,7 @@ export default function CtaSection() {
            viewport={{ once: true }}
            transition={{ delay: 0.4 }}
         >
-          <Link href="/apartments" className="inline-block px-10 py-5 bg-gold text-primary font-bold tracking-widest uppercase text-sm hover:bg-white transition-all duration-300">
+          <Link href="https://api.whatsapp.com/send/?phone=2348163334514" className="inline-block px-10 py-5 bg-gold text-primary font-bold tracking-widest uppercase text-sm hover:bg-white transition-all duration-300">
             Reserve Your Suite
           </Link>
         </motion.div>
