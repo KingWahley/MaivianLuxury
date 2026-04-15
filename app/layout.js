@@ -29,7 +29,7 @@ export const metadata = {
     description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for comfort, exclusivity, and class.",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/images/logo.jpeg",
         width: 1200,
         height: 630,
         alt: "Maivan Luxury",
@@ -40,12 +40,12 @@ export const metadata = {
     card: "summary_large_image",
     title: "Maivan Luxury | Premium Shortlet Apartments",
     description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for exceptional comfort.",
-    images: ["/images/logo.png"],
+    images: ["/images/logo.jpeg"],
   },
   icons: {
-    icon: "/images/logo.png",
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/logo.jpeg",
+    shortcut: "/images/logo.jpeg",
+    apple: "/images/logo.jpeg",
   },
 };
 
