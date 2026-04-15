@@ -44,7 +44,7 @@ export default function Navbar() {
             className="object-contain rounded-lg h-12 w-auto"
             priority
           />
-          <h4 className='text-white px-4 font-bold'>MAIVAN LUXURY</h4>
+          <h4 className='text-white px-4 font-bold'>MAIVAN LUXURY APARTMENTS</h4>
         </Link>
         
         {/* Desktop Nav */}
