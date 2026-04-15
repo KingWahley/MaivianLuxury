@@ -15,30 +15,30 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: "Maivian Luxury | Premium Shortlet Apartments",
-    template: "%s | Maivian Luxury"
+    default: "Maivan Luxury | Premium Shortlet Apartments",
+    template: "%s | Maivan Luxury"
   },
   description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for exceptional comfort, privacy, and class.",
-  keywords: ["luxury apartments", "shortlet", "premium accommodation", "maivian luxury", "vacation rentals", "luxury stays"],
-  authors: [{ name: "Maivian Luxury" }],
+  keywords: ["luxury apartments", "shortlet", "premium accommodation", "maivan luxury", "vacation rentals", "luxury stays"],
+  authors: [{ name: "Maivan Luxury" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Maivian Luxury",
-    title: "Maivian Luxury | Premium Shortlet Apartments",
+    siteName: "Maivan Luxury",
+    title: "Maivan Luxury | Premium Shortlet Apartments",
     description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for comfort, exclusivity, and class.",
     images: [
       {
         url: "/images/logo.png",
         width: 1200,
         height: 630,
-        alt: "Maivian Luxury",
+        alt: "Maivan Luxury",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maivian Luxury | Premium Shortlet Apartments",
+    title: "Maivan Luxury | Premium Shortlet Apartments",
     description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for exceptional comfort.",
     images: ["/images/logo.png"],
   },

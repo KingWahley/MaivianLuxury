@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-3xl font-serif font-bold text-white tracking-wide mb-6 inline-block">
-              MAIVIAN LUXURY<span className="text-gold">.</span>
+              MAIVAN LUXURY<span className="text-gold">.</span>
             </Link>
             <p className="text-gray-muted max-w-sm font-light leading-relaxed">
               Experience luxury living redefined. Premium shortlet apartments designed for the ultimate comfort and class.
@@ -55,7 +55,7 @@ export default function Footer() {
         
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-muted/60 text-xs tracking-wider">
-            &copy; {new Date().getFullYear()} MAIVIAN LUXURY APARTMENTS. ALL RIGHTS RESERVED.
+            &copy; {new Date().getFullYear()} MAIVAN LUXURY APARTMENTS. ALL RIGHTS RESERVED.
           </p>
         </div>
       </div>

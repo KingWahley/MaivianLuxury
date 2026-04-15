@@ -13,7 +13,7 @@ export default function ReviewsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { name: "Chioma O.", role: "Business Executive", text: "Maivian Luxury provided an experience unlike any other. The attention to detail and 24/7 concierge service made my stay exceptional.", rating: 5 },
+            { name: "Chioma O.", role: "Business Executive", text: "Maivan Luxury provided an experience unlike any other. The attention to detail and 24/7 concierge service made my stay exceptional.", rating: 5 },
             { name: "Adekunle T.", role: "International Traveler", text: "A true masterclass in hospitality. The penthouse was stunning, and the location was perfectly central to everything I needed. Highly recommended!", rating: 5 },
             { name: "Amina B.", role: "Fashion Designer", text: "The aesthetic of these apartments is simply breathtaking. Every piece of furniture feels curated. I will definitely be returning.", rating: 5 }
           ].map((review, idx) => (

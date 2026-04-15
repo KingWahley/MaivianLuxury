@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 export const metadata = {
-  title: "Our Story | Maivian Luxury",
-  description: "Learn about Maivian Luxury's mission to redefine luxury shortlet living.",
+  title: "Our Story | Maivan Luxury",
+  description: "Learn about Maivan Luxury's mission to redefine luxury shortlet living.",
 };
 
 export default function AboutPage() {
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">Elevating the Art of Hospitality</h2>
             <p className="text-gray-muted text-lg font-light leading-relaxed mb-6">
-              Founded on the principle that luxury is not just a price tag, but an experience, Maivian Luxury was created to redefine the standard of shortlet apartments. We believe that whether you travel for business or leisure, your accommodation should offer the comfort of home combined with the premium services of a five-star hotel.
+              Founded on the principle that luxury is not just a price tag, but an experience, Maivan Luxury was created to redefine the standard of shortlet apartments. We believe that whether you travel for business or leisure, your accommodation should offer the comfort of home combined with the premium services of a five-star hotel.
             </p>
             <p className="text-gray-muted text-lg font-light leading-relaxed mb-8">
               Every residence in our portfolio is meticulously selected and curated with bespoke furnishings, modern amenities, and uncompromising attention to detail, ensuring an unforgettable stay.

@@ -4,7 +4,7 @@ import { ArrowRight, MapPin, Bed, Bath } from "lucide-react";
 import FilterSidebar from "./FilterSidebar";
 
 export const metadata = {
-  title: "Our Residences | Maivian Luxury",
+  title: "Our Residences | Maivan Luxury",
   description: "Browse our exclusive collection of luxury shortlet apartments.",
 };
 

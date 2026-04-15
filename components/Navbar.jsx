@@ -38,13 +38,13 @@ export default function Navbar() {
         <Link href="/" className="flex items-center">
           <Image 
             src="/images/logo.png" 
-            alt="Maivian Luxury Logo" 
+            alt="Maivan Luxury Logo" 
             width={160} 
             height={60} 
             className="object-contain rounded-lg h-12 w-auto"
             priority
           />
-          <h4 className='text-white px-4 font-bold'>MAIVIAN LUXURY</h4>
+          <h4 className='text-white px-4 font-bold'>MAIVAN LUXURY</h4>
         </Link>
         
         {/* Desktop Nav */}

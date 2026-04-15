@@ -25,7 +25,7 @@ export default function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight mb-6"
         >
-          Maivian Luxury 
+          Maivan Luxury 
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

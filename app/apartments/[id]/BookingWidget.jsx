@@ -30,7 +30,7 @@ export default function BookingWidget({ apartment }) {
     const checkOutText = checkOut ? checkOut : "To be decided";
     const nightsText = (checkIn && checkOut) ? `${nights} nights` : "To be decided";
 
-    const message = `Hello Maivian Luxury! I would like to book an apartment:
+    const message = `Hello Maivan Luxury! I would like to book an apartment:
 
 *Apartment:* ${apartment.name}
 *Bedrooms:* ${bedrooms} Bedrooms
