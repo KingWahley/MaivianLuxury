@@ -3,6 +3,18 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.VERCEL_URL ||
+  "https://www.maivanluxuryapartments.com";
+
+function normalizeSiteUrl(value) {
+  const withProtocol = value.startsWith("http") ? value : `https://${value}`;
+  return withProtocol.replace(/\/+$/, "");
+}
+
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -14,19 +26,35 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL(normalizeSiteUrl(siteUrl)),
   title: {
-    default: "Maivan Luxury | Premium Shortlet Apartments",
+    default: "Maivan Luxury Abuja | Premium Shortlet Apartments in Nigeria",
     template: "%s | Maivan Luxury"
   },
-  description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for exceptional comfort, privacy, and class.",
-  keywords: ["luxury apartments", "shortlet", "premium accommodation", "maivan luxury", "vacation rentals", "luxury stays"],
+  description: "Experience luxury living in Abuja, Nigeria. Maivan Luxury offers premium shortlet apartments designed for exceptional comfort, privacy, and class.",
+  keywords: [
+    "luxury apartments Abuja",
+    "shortlet Abuja",
+    "premium accommodation Abuja Nigeria",
+    "maivan luxury",
+    "vacation rentals Abuja",
+    "luxury stays Nigeria",
+    "Abuja shortlet apartments",
+    "serviced apartments Abuja",
+  ],
   authors: [{ name: "Maivan Luxury" }],
+  category: "Travel",
+  other: {
+    "geo.region": "NG-FC",
+    "geo.placename": "Abuja, Nigeria",
+    "ICBM": "9.0765, 7.3986",
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_NG",
     siteName: "Maivan Luxury",
-    title: "Maivan Luxury | Premium Shortlet Apartments",
-    description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for comfort, exclusivity, and class.",
+    title: "Maivan Luxury Abuja | Premium Shortlet Apartments in Nigeria",
+    description: "Experience luxury living in Abuja, Nigeria with premium shortlet apartments designed for comfort, exclusivity, and class.",
     images: [
       {
         url: "/images/logo.jpeg",
@@ -38,8 +66,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maivan Luxury | Premium Shortlet Apartments",
-    description: "Experience Luxury Living, Redefined. Premium shortlet apartments designed for exceptional comfort.",
+    title: "Maivan Luxury Abuja | Premium Shortlet Apartments in Nigeria",
+    description: "Experience luxury living in Abuja, Nigeria with premium shortlet apartments designed for exceptional comfort.",
     images: ["/images/logo.jpeg"],
   },
   icons: {
